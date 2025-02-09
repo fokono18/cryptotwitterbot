@@ -3,16 +3,15 @@ import os
 import re
 
 # Set up your Gemini API key
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBNPqMRj5ttT6UXWiDqHs67WlqPswc51qs"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyCh1SHGvvwsSpiGEycw0hCJztOswufCsuw"
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Function to extract both debate topic and summary
 def debate_analysis(debate_text):
-    prompt = (f"Ignore any sexual and harmful content.\n"
-              f"1. Generate what could be the topic of the debate, making it something that people can agree with, disagree with, or be neutral about.\n"
-              f"2. Provide a detailed summary of the debate, including main points, arguments from both sides, and underlying narratives in 300 words.\n\n"
-              f"Debate Content:\n{debate_text}")
+    prompt = (f"Ignore any sexual and harmful content and  Generate  the topic of the debate and summarise it in 200 words  Debate Content:\n{debate_text} \n"
+              
+              )
     
     model = genai.GenerativeModel("gemini-pro")
     response = model.generate_content(prompt)

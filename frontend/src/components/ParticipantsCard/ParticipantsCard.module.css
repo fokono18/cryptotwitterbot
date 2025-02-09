@@ -1,0 +1,56 @@
+.participantCard {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.participantHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.participantInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.username {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.stance {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pro {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.con {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.confidence {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.argument {
+    color: #cccccc;
+    line-height: 1.5;
+}

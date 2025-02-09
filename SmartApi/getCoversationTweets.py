@@ -7,7 +7,7 @@ url = "https://apis.datura.ai/twitter"
 
 
 payload = {
-    "query": f"conversation_id:{CONVS[0]}",
+    "query": f"conversation_id:{CONVS[1]}",
     "sort": "Top"
   
 

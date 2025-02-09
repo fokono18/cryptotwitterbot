@@ -2,7 +2,7 @@
 import json
 
 
-from stance import analyze_user_stance, summarize_debate, debate_topic, triggers
+from stance import analyze_user_stance, debate_analysis, triggers
 from transformFemi import transformCommunities
 from conversation_graph import build_conversation_graph
 from debateDetection import detect_debate_communities
@@ -42,8 +42,7 @@ def main():
   
    
 
-    summary = summarize_debate(mainText)
-    topic = debate_topic(mainText)
+    topic, summary = debate_analysis(mainText)
     stances = analyze_user_stance(newCluster,topic)
     trigger = triggers(mainText)
 

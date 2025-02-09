@@ -1,6 +1,28 @@
+import { useState } from "react";
 import styles from "./HomePage.module.css";
+import { useNavigate } from "react-router-dom";
+
+type FormData = { description: string };
 
 const HomePage = () => {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState<FormData>({ description: "" });
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log("Form submitted");
+        console.log(formData);
+        navigate("/detail");
+    };
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -10,13 +32,14 @@ const HomePage = () => {
                     and discussions
                 </p>
             </div>
-            <form className={styles.searchForm}>
+            <form className={styles.searchForm} onSubmit={handleSubmit}>
                 <div className={styles.inputGroup}>
                     <input
                         type="text"
                         className={styles.searchInput}
                         placeholder="Describe what you're looking for..."
                         required
+                        onChange={handleInputChange}
                     />
                 </div>
                 <button type="submit" className={styles.searchButton}>
