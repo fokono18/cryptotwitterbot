@@ -29,7 +29,8 @@ def populate_graph_from_tweet(tweet, graph):
     user_info = tweet.get("user", {})
     tweeting_user_id = user_info.get("id")
     tweeting_username = user_info.get("username")
-    tweeting_name = user_info.get("name")
+
+ 
     tweet_text = tweet.get("text", "")
     
     if tweeting_user_id is None:
@@ -40,7 +41,7 @@ def populate_graph_from_tweet(tweet, graph):
     if tweeting_user_id not in graph:
         graph.add_node(tweeting_user_id,
                        username=tweeting_username,
-                       name=tweeting_name,
+
                        texts=[tweet_text])
     else:
         add_text_to_node(graph, tweeting_user_id, tweet_text)
@@ -49,7 +50,7 @@ def populate_graph_from_tweet(tweet, graph):
     reply_user_id = tweet.get("in_reply_to_user_id")
     if reply_user_id:
         if reply_user_id not in graph:
-            graph.add_node(reply_user_id, texts=[])
+            graph.add_node(reply_user_id, username="", texts=[])
         graph.add_edge(tweeting_user_id, reply_user_id, type="reply")
     
     # --- Process a Quote Tweet ---

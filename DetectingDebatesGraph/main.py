@@ -2,6 +2,9 @@
 import json
 
 
+from getCoversationTweets import coversationThread
+from getMajortweetIds import fetchProminentTweets
+from  measureInfluence import measureInfluence
 from stance import analyze_user_stance, debate_analysis, triggers
 from transformFemi import transformCommunities
 from conversation_graph import build_conversation_graph
@@ -13,20 +16,12 @@ def main():
     with open("second.json", "r") as datafile:
         tweets = json.load(datafile)
 
+    
+    tweets = coversationThread(fetchProminentTweets())
+    print("done fetching tweets")
     # Step 2: Build Conversation Graph
     G = build_conversation_graph(tweets)
-
-    
-    counter = 1
-    # for node, attr in G.nodes(data=True):
-    #     print(f"{counter}.  {node}, {attr}")
-    #     counter +=  1
-
-    # print("\nEdges in Graph:")
-    # for u, v, attr in G.edges(data=True):
-    #     print(f"{u} -> {v} with attributes {attr}")
-    
-
+   
     
     # Step 3: Detect Debate Clusters
    
@@ -39,6 +34,12 @@ def main():
     newCluster, mainText = transformCommunities(debate_communities)
     print(mainText)
     print(newCluster)
+
+
+    influences = measureInfluence(G, newCluster)
+    print(influences)
+    print("done with measuring influence")
+
   
    
 
