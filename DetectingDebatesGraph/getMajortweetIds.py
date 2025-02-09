@@ -8,7 +8,7 @@ url = "https://apis.datura.ai/twitter"
 
 def fetchProminentTweets():
     payload = {
-        "query": "(best OR worst OR future OR (better than) OR (wrong about) OR debate OR (hot take) OR (I disagree)) (crypto OR Bitcoin OR Ethereum OR Ripple OR Litecoin OR Cardano OR Polkadot OR Dogecoin OR blockchain OR defi OR nft OR web3) (bubble OR crash OR bearish OR bullish OR prices OR liquidation OR sell OR buy OR whale OR dividends OR value OR valuation OR (market cap) OR undervalued OR overvalued) Web3",
+        "query": "(best OR worst OR future OR (better than) OR (wrong about) OR debate OR (hot take) OR (I disagree)) (crypto OR Bitcoin OR Ethereum OR Ripple OR Litecoin OR Cardano OR Polkadot OR Dogecoin OR blockchain OR defi OR nft OR web3) (bubble OR crash OR bearish OR bullish OR prices OR liquidation OR sell OR buy OR whale OR dividends OR value OR valuation OR (market cap) OR undervalued OR overvalued)",
         "lang": "en",
     
     }

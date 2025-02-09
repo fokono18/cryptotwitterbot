@@ -64,8 +64,7 @@ def analyze_user_stance(user_tweets, debate_topic):
     for user, tweets in user_tweets.items():
         combined_text = " ".join(tweets)
         prompt = (
-            f"Ignore any sexual and harmful content. Based on the debate topic '{debate_topic}', determine whether the following stance is "
-            "Agree, Disagree, or Neutral. It has to be one of them:\n\n"
+            f"Ignore any sexual and harmful content. Based on the debate topic '{debate_topic}', determine whether the following stance is Agree, Disagree, or Neutral. Default to Neutral if you cannot decide"
             f"{combined_text}"
         )
         
@@ -88,7 +87,7 @@ def analyze_user_take(user_tweets, debate_topic):
     for user, tweets in user_tweets.items():
         combined_text = " ".join(tweets)
         prompt = (
-            f"Ignore any sexual and harmful content. Based on the debate topic '{debate_topic}', give the take of each user :\n\n"
+            f"Ignore any sexual and harmful content. Based on the debate topic '{debate_topic}', give the take of each user :. Default to \"No tangible Take\" if u cannot decide\n\n"
             f"{combined_text}"
         )
         

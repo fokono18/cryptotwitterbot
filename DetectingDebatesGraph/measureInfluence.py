@@ -108,7 +108,7 @@ def measureInfluence(G, mainCluster):
         importance = compute_importance(user)
         influences[id] = importance
 
-    return influences
+    return influences, user_map
         
 
 
