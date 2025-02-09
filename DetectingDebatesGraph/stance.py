@@ -82,6 +82,29 @@ def analyze_user_stance(user_tweets, debate_topic):
         stance_results[user] = response.choices[0].message.content.strip()
     
     return stance_results
+def analyze_user_take(user_tweets, debate_topic):
+    stance_results = {}
+    
+    for user, tweets in user_tweets.items():
+        combined_text = " ".join(tweets)
+        prompt = (
+            f"Ignore any sexual and harmful content. Based on the debate topic '{debate_topic}', give the take of each user :\n\n"
+            f"{combined_text}"
+        )
+        
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=150,
+            temperature=0.7
+        )
+        
+        stance_results[user] = response.choices[0].message.content.strip()
+    
+    return stance_results
 
 # Sample data for testing
 # user_tweets = {
