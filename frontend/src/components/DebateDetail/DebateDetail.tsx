@@ -3,21 +3,35 @@ import ParticipantsCard from "../ParticipantsCard/ParticipantsCard";
 import ParticipantsSection from "../ParticipantsSection/ParticipantsSection";
 import styles from "./DebateDetail.module.css";
 
-interface DebateDetails {
+export interface DebateDetails {
     title: string;
     description: string;
+    userStances: UserStance[];
 }
 
-const DebateDetail = () => {
+export interface UserStance {
+    username: string;
+    confidence: string;
+    argument: string;
+    stance: string;
+}
+
+const DebateDetail = ({ title, description, userStances }: DebateDetails) => {
     return (
         <div className={styles.con}>
             <DetailHeader
-                title={"hello"}
-                description={
-                    "he Fermi Paradox is the apparent contradiction between the high probability of extraterrestrial civilizations existing and the lack of evidence for their presence. Named after physicist Enrico Fermi, the paradox arises from the vastness of the universe—billions of galaxies, each containing billions of stars and potentially habitable planets—suggesting that intelligent life should be widespread."
-                }
+                title={title}
+                description={description}
             ></DetailHeader>
             <ParticipantsSection>
+                {userStances.map((us) => (
+                    <ParticipantsCard
+                        username={us.username}
+                        confidence={us.confidence}
+                        argument={us.argument}
+                        stance={us.stance}
+                    ></ParticipantsCard>
+                ))}
                 <ParticipantsCard
                     username={"Elonmusk"}
                     confidence={"70"}

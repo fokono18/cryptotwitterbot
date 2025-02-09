@@ -4,7 +4,7 @@ interface Props {
     username: string;
     confidence: string;
     argument: string;
-    stance: "Agree" | "Neutral" | "Disagree";
+    stance: string;
 }
 
 const ParticipantsCard = ({

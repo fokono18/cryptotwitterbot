@@ -4,14 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 type FormData = { description: string };
 
-const HomePage = () => {
+interface Props {
+    loadDebates: (x: string) => void;
+}
+
+const HomePage = ({ loadDebates }: Props) => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState<FormData>({ description: "" });
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log("Form submitted");
-        console.log(formData);
+        loadDebates(formData.description);
         navigate("/detail");
     };
 
