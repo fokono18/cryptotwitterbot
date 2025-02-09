@@ -3,7 +3,7 @@ import os
 from textblob import TextBlob
 
 # Set up your Gemini API key
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDSYOy5AcTKGomV9fd5_q81HYzp7WrjMxU"
+os.environ["GOOGLE_API_KEY"] = "AIzaSyBNPqMRj5ttT6UXWiDqHs67WlqPswc51qs"
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
