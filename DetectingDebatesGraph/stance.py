@@ -49,19 +49,3 @@ user_tweets = {
     "@user3": ["While regulation is not necessary, blockchain technology is revolutionary and should not be embraced." "i Don't agree with any of you"]
 }
 
-# Generate a summary of all tweets
-all_text = " ".join([" ".join(tweets) for tweets in user_tweets.values()])
-summary = summarize_debate(all_text)
-topic = debate_topic(all_text)
-stances = analyze_user_stance(user_tweets,topic)
-trigger = triggers(all_text)
-
-print("Debate Topic:")
-print(topic)
-print("\nDebate Summary:")
-print(summary)
-print("\nDebate Triggers:")
-print(trigger)
-print("\nUser Stances:")
-for user, stance in stances.items():
-    print(f"{user}: {stance}")
