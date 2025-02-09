@@ -3,7 +3,7 @@ import os
 import re
 
 # Set up your OpenAI API key
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Function to extract both debate topic and summary
