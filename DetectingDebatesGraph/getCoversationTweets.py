@@ -23,7 +23,7 @@ def coversationThread(CONVS):
 
         data = response.json()
         tot.extend(data)
-        print(i)
+        
 
     return tot
 

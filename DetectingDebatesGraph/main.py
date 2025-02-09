@@ -16,7 +16,7 @@ def main():
 
     
     tweets = coversationThread(fetchProminentTweets())
-    print("done fetching tweets")
+
     # Step 2: Build Conversation Graph
     G = build_conversation_graph(tweets)
    
@@ -24,9 +24,7 @@ def main():
     # Step 3: Detect Debate Clusters
    
     debate_communities = detect_debate_communities(G)
-    # print(debate_communities)
-    # for i, community in enumerate(debate_communities, start=1):
-    #     print(f"Debate Cluster {i}: {community}")
+
 
 
     newCluster, mainText = transformCommunities(debate_communities)
@@ -34,8 +32,7 @@ def main():
 
 
     influences, user_map = measureInfluence(G, newCluster)
-    # print(influences)
-    print("done with measuring influence")
+
 
   
    
@@ -60,12 +57,12 @@ def main():
 
     
     userDetail = []
-    for user in stances.items():
+    for user, stances in stances.items():
         new = {}
         new["username"] = user_map[user]
         new["confidence"] = influences[user]
         new["argument"] = userTakes[user]
-        new["stance"] = stances[user]
+        new["stance"] = stances
         userDetail.append(new)
         
 
@@ -75,7 +72,7 @@ def main():
         "userStances": userDetail
     }
 
-    print(response)
+    return response
 
 if __name__ == "__main__":
     main()

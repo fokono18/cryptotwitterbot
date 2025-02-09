@@ -26,6 +26,7 @@ const useDetails = () => {
 
             // Parse the response JSON
             const data = await response.json();
+            console.log(data);
 
             // Set the response data to state
             setDebateDetails(data);

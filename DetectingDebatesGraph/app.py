@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from main import main
+import json
 
 app = Flask(__name__)
 # Enable CORS for your Vite frontend
@@ -14,22 +16,12 @@ def handle_debate():
             return jsonify({"error": "No data provided"}), 400
             
 
-       
-            
-        # Validate userStances structure
-        
-        
         # Process the debate details
-        response = {
-            "message": "Debate details received",
-            "debate": {
-                "title": data['title'],
-                "description": data['description'],
-                "userStances": data['userStances']
-            }
-        }
+        response = json.dumps(main())
         
-        return jsonify(response), 200
+        
+        print(response)
+        return response, 200
         
     except Exception as e:
         return jsonify({"error": str(e)}), 500

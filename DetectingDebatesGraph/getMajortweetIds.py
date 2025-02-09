@@ -31,7 +31,7 @@ def fetchProminentTweets():
         if count > 2:
             break
         CONVS.append(tweet["conversation_id"])
-        print(f"--------{tweet["text"]}----------++")
+      
         count += 1
         
     return CONVS

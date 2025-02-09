@@ -106,6 +106,7 @@ def measureInfluence(G, mainCluster):
             influences[id] = "Not able to Calculate"
             continue
         importance = compute_importance(user)
+        importance = math.floor(importance)
         influences[id] = importance
 
     return influences, user_map

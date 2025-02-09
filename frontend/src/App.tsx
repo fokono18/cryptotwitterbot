@@ -6,7 +6,7 @@ import HomePage from "./components/HomePage/HomePage";
 import useDetails from "./useDetails";
 
 function App() {
-    const { loadDebates, debateDetails } = useDetails();
+    const { loadDebates, loading, debateDetails } = useDetails();
 
     return (
         <>
@@ -19,6 +19,7 @@ function App() {
                     path="/detail"
                     element={
                         <DebateDetail
+                            loading={loading}
                             title={debateDetails?.title as string}
                             description={debateDetails?.description as string}
                             userStances={
