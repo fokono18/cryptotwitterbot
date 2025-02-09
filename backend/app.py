@@ -13,15 +13,11 @@ def handle_debate():
         if not data:
             return jsonify({"error": "No data provided"}), 400
             
-        # Validate the structure matches DebateDetails
-        if not all(field in data for field in ['title', 'description', 'userStances']):
-            return jsonify({"error": "Missing required fields"}), 400
+
+       
             
         # Validate userStances structure
-        for stance in data['userStances']:
-            required_stance_fields = ['username', 'confidence', 'argument', 'stance']
-            if not all(field in stance for field in required_stance_fields):
-                return jsonify({"error": "Invalid UserStance structure"}), 400
+        
         
         # Process the debate details
         response = {
